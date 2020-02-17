@@ -8,9 +8,9 @@
 <body>
     
     <div id="app">
-        <img :src="src" :alt="alt">
-        <p>{{ text }}</p>
-        <p v-html="html"></p>
+        <p v-if="userAge > allowedAge">Allowed in</p>
+        <p v-else-if="user === 'Francis'">Hi Francis</p>
+        <p v-else>You are not allowed in</p>
     </div>
 
 </body>
@@ -20,10 +20,9 @@
     new Vue({
         el: '#app',
         data: {
-            src: 'https://i.picsum.photos/id/420/536/354.jpg',
-            alt: 'Another image',
-            text: "Hello guys",
-            html: "<strong>This is bold</strong>"
+            user: 'Francis',
+            userAge: 17,
+            allowedAge: 18
         }
     })
 

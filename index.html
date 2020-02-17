@@ -25,24 +25,14 @@
     
     <div id="app">
         
-        <div 
-            class="element" 
-            v-bind:class="[colors.redClass.active ? colors.redClass.name : '']" 
-            v-on:click="
-                colors.redClass.active = !colors.redClass.active,
-                newStyle.fontSize = '50px'
-            "
-            v-bind:style="newStyle"
-        >
-            This is my content
+        <input type="text" v-model="user">
+        <button v-on:click="toggleActive">Other action</button>
+        <hr>
+        <div>
+            Name: {{ compMessage }}
         </div>
-
-        <div 
-            class="element" 
-            v-bind:class="colorStyle" 
-            v-on:click="colorStyle='red'"
-        >
-            This is my content
+        <div>
+            Active: {{ isActive() }}
         </div>
 
     </div>
@@ -54,16 +44,22 @@
     new Vue({
         el: '#app',
         data: {
-            colorStyle: 'blue',
-            colors: {
-                redClass: {
-                    name: 'red',
-                    active: true
-                }
+            user: '',
+            active: false
+        },
+        methods: {
+            toggleActive() {
+                this.active = this.active ? false : true;
             },
-            newStyle: {
-                fontSize: '20px',
-                border: '5px solid green'
+            isActive() {
+                console.log('Active !! triggered');
+                return this.active ? 'Active' : 'Not active'
+            }
+        },
+        computed: {
+            compMessage() {
+                console.log('Message !! triggered');
+                return this.user === 'Francis' ? 'Welcome' : 'Not allowed';
             }
         }
     })

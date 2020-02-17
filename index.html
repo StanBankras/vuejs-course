@@ -8,9 +8,12 @@
 <body>
     
     <div id="app">
-        <p v-if="userAge > allowedAge">Allowed in</p>
+        <!-- <p v-if="userAge > allowedAge">Allowed in</p>
         <p v-else-if="user === 'Francis'">Hi Francis</p>
-        <p v-else>You are not allowed in</p>
+        <p v-else>You are not allowed in</p> -->
+
+        <p v-if="checkUser()">Show it</p>
+        <p v-else> Dont show it</p>
     </div>
 
 </body>
@@ -23,6 +26,11 @@
             user: 'Francis',
             userAge: 17,
             allowedAge: 18
+        },
+        methods: {
+            checkUser() {
+                return this.user === 'Francis' ? true : false;
+            }
         }
     })
 

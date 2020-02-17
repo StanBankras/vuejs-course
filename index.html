@@ -8,11 +8,9 @@
 <body>
     
     <div id="app">
-        {{ welcome() }}
-        <!-- <p>is it true: {{ isItTrue ? 'Yes' : 'No' }}</p>
-        <p>{{ array[1] }}</p>
-        <p>{{ obj.car }}</p>
-        <p>{{ func() }}</p> -->
+        <img :src="src" :alt="alt">
+        <p>{{ text }}</p>
+        <p v-html="html"></p>
     </div>
 
 </body>
@@ -22,20 +20,10 @@
     new Vue({
         el: '#app',
         data: {
-            greeting: "Hello guys",
-            isItTrue: false,
-            array: [ 'Francis', 'Jane' ],
-            obj: {
-                car: "Ferrari"
-            },
-            func: () => {
-                return 'Message from function'
-            }
-        },
-        methods: {
-            welcome() {
-                return this.greeting;
-            }
+            src: 'https://i.picsum.photos/id/420/536/354.jpg',
+            alt: 'Another image',
+            text: "Hello guys",
+            html: "<strong>This is bold</strong>"
         }
     })
 

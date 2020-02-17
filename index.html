@@ -11,15 +11,8 @@
 <body>
     
     <div id="app">
-        <h1>{{ name }}</h1>
-        <div class="box" v-on:click="changeName('Steve', $event)">
-            click me!!
-        </div>
-
-        <form v-on:submit.prevent="handleForm">
-            <input type="text">
-            <button type="submit">Submit</button>
-        </form>        
+        
+        <input type="text" v-on:keyup.71.72.enter.space="showEvent">
 
     </div>
 
@@ -29,15 +22,9 @@
 
     new Vue({
         el: '#app',
-        data: {
-            name: "Francis"
-        },
         methods: {
-            changeName(name, event) {
-                this.name = name;
+            showEvent() {
                 console.log(event);
-            },
-            handleForm(event) {
             }
         }
     })

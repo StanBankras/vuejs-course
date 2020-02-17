@@ -5,26 +5,22 @@
     <script src="js/vue.js"></script>
     <title>Document</title>
     <style>
-        .box {
-            background-color: red;
-            width: 200px;
-            height: 200px;
-        }
+        
     </style>
 </head>
 <body>
     
     <div id="app">
-        <!-- <h1>{{ name }}</h1>
-        <div v-on:dblclick="updateName">
-            Click me!
-        </div> -->
-
-        <div class="box" v-on:mousemove="getCoord">
-            Hover me
+        <h1>{{ name }}</h1>
+        <div class="box" v-on:click="changeName('Steve', $event)">
+            click me!!
         </div>
-        <p>x: {{ x }}</p>
-        <p>y: {{ y }}</p>
+
+        <form v-on:submit.prevent="handleForm">
+            <input type="text">
+            <button type="submit">Submit</button>
+        </form>        
+
     </div>
 
 </body>
@@ -34,17 +30,14 @@
     new Vue({
         el: '#app',
         data: {
-            name: "Francis",
-            x: 0,
-            y: 0
+            name: "Francis"
         },
         methods: {
-            updateName() {
-                return this.name = 'Steve';
+            changeName(name, event) {
+                this.name = name;
+                console.log(event);
             },
-            getCoord(event) {
-                this.x = event.clientX;
-                this.y = event.clientY;
+            handleForm(event) {
             }
         }
     })

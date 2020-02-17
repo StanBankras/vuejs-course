@@ -8,20 +8,12 @@
 <body>
     
     <div id="app">
-        <!-- <p v-if="userAge > allowedAge">Allowed in</p>
-        <p v-else-if="user === 'Francis'">Hi Francis</p>
-        <p v-else>You are not allowed in</p> -->
-
-        <!-- <p v-if="checkUser()">Show it</p>
-        <p v-else> Dont show it</p> -->
-
-        <p v-show="user === 'Francis'">
-            Show it
+        <p v-for="(name, index) in names">
+            {{ index }} / {{ name }}
         </p>
-        <p v-show="user !== 'Francis'">
-            Dont show it
-        </p>
-
+        <ul>
+            <li v-for="name in names">{{ index }} / {{ name }}</li>
+        </ul>
     </div>
 
 </body>
@@ -31,14 +23,7 @@
     new Vue({
         el: '#app',
         data: {
-            user: 'Francis',
-            userAge: 17,
-            allowedAge: 18
-        },
-        methods: {
-            checkUser() {
-                return this.user === 'Francis' ? true : false;
-            }
+            names: ['Francis', 'Jane', 'Steve']
         }
     })
 

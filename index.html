@@ -5,25 +5,45 @@
     <script src="js/vue.js"></script>
     <title>Document</title>
     <style>
-        
+        .element {
+            color: white;
+            background: black;
+            padding: 10px;
+        }
+        .red {
+            background: red;
+        }
+        .blue {
+            background: blue;
+        }
+        .green {
+            background: green;
+        }
     </style>
 </head>
 <body>
     
     <div id="app">
         
-        <form v-on:submit.prevent="formHandler">
-            <label>Name</label>
-            <input type="text" v-model.trim="formData.name">
-            <hr>
-            <label>Lastname</label>
-            <input type="text" v-model.lazy="formData.lastName">
-            <hr>
-            <label>Age</label>
-            <input type="text" v-model.number="formData.age">
-            <hr>
-            <button type="submit">Submit</button>
-        </form>
+        <div 
+            class="element" 
+            v-bind:class="[colors.redClass.active ? colors.redClass.name : '']" 
+            v-on:click="
+                colors.redClass.active = !colors.redClass.active,
+                newStyle.fontSize = '50px'
+            "
+            v-bind:style="newStyle"
+        >
+            This is my content
+        </div>
+
+        <div 
+            class="element" 
+            v-bind:class="colorStyle" 
+            v-on:click="colorStyle='red'"
+        >
+            This is my content
+        </div>
 
     </div>
 
@@ -34,16 +54,17 @@
     new Vue({
         el: '#app',
         data: {
-            formData: {
-                name: '',
-                lastname: '',
-                age: ''
+            colorStyle: 'blue',
+            colors: {
+                redClass: {
+                    name: 'red',
+                    active: true
+                }
+            },
+            newStyle: {
+                fontSize: '20px',
+                border: '5px solid green'
             }
-        },
-        methods: {
-           formHandler() {
-                console.log(this.formData);
-           }
         }
     })
 

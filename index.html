@@ -22,64 +22,28 @@
     </style>
 </head>
 <body>
-    
+
     <div id="app">
-        <div ref="title">Hello</div>
-        <div>Instance one: {{ value }}</div>
-        <button @click="changeValue">Change</button>
-        {{ accessValue() }}
-    </div>
-    <hr>
-    <div id="app2">
         
-        <div>Instance two: {{ value }}</div>
-        <button @click="saySomething">Change</button>
+        
 
     </div>
-
 </body>
 
 <script>
 
-    let message = 'Hey guys'
+    const template = `<div>{{ name }}</div>`
 
     const app1 = new Vue({
-        el: '#app',
         data: {
-            value: 'Instance one working!!'
+            name: 'Francis'
         },
-        methods: {
-            changeValue() {
-                app2.value = 'The value changed.';
-                this.$refs.title.style.color = 'red';
-                this.$refs.title.style.fontSize = '50px';
-            },
-            accessValue() {
-                setTimeout(() => {
-                    console.log(this.name);
-                }, 5000)
-            }
-        }
-    })
-
-    const app2 = new Vue({
-        el: '#app2',
-        data: {
-            value: 'Instance two working!!'
-        },
-        methods: {
-            saySomething() {
-                alert(message);
-            }
-        }
+        template: template
     })
 
     setTimeout(() => {
-        app1.value = 'Changed.';
-        app1.name = 'Francis';
-        console.log(app1.name);
+        app1.$mount('#app')
     }, 3000)
-
 </script>
 
 </html>

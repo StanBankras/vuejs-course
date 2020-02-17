@@ -15,10 +15,16 @@
 <body>
     
     <div id="app">
-        <h1>{{ name }}</h1>
+        <!-- <h1>{{ name }}</h1>
         <div v-on:dblclick="updateName">
             Click me!
+        </div> -->
+
+        <div class="box" v-on:mousemove="getCoord">
+            Hover me
         </div>
+        <p>x: {{ x }}</p>
+        <p>y: {{ y }}</p>
     </div>
 
 </body>
@@ -28,11 +34,17 @@
     new Vue({
         el: '#app',
         data: {
-            name: "Francis"
+            name: "Francis",
+            x: 0,
+            y: 0
         },
         methods: {
             updateName() {
                 return this.name = 'Steve';
+            },
+            getCoord(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
             }
         }
     })

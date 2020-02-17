@@ -8,7 +8,11 @@
 <body>
     
     <div id="app">
-
+        {{ greeting }}
+        <p>is it true: {{ isItTrue ? 'Yes' : 'No' }}</p>
+        <p>{{ array[1] }}</p>
+        <p>{{ obj.car }}</p>
+        <p>{{ func() }}</p>
     </div>
 
 </body>
@@ -16,7 +20,18 @@
 <script>
 
     new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            greeting: "Hello guys",
+            isItTrue: false,
+            array: [ 'Francis', 'Jane' ],
+            obj: {
+                car: "Ferrari"
+            },
+            func: () => {
+                return 'Message from function'
+            }
+        }
     })
 
 </script>

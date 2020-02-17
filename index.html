@@ -25,14 +25,12 @@
     
     <div id="app">
         
-        <input type="text" v-model="user">
-        <button @click="toggleActive">Other action</button>
-        <hr>
-        <div>
-            Name: {{ compMessage }}
-        </div>
-        <hr>
-        <a :href="google">Google</a>
+        <div>Instance one: {{ value }}</div>
+
+    </div>
+    <div id="app2">
+        
+        <div>Instance two: {{ value }}</div>
 
     </div>
 
@@ -43,33 +41,14 @@
     new Vue({
         el: '#app',
         data: {
-            user: '',
-            active: false,
-            loading: false,
-            google: 'https://google.com'
-        },
-        watch: {
-            active(value) {
-                this.loading = true;
-                setTimeout(() => {
-                    this.loading = false;
-                }, 3000)
-            }
-        },
-        methods: {
-            toggleActive() {
-                this.active = this.active ? false : true;
-            },
-            isActive() {
-                console.log('Active !! triggered');
-                return this.active ? 'Active' : 'Not active'
-            }
-        },
-        computed: {
-            compMessage() {
-                console.log('Message !! triggered');
-                return this.user === 'Francis' ? 'Welcome' : 'Not allowed';
-            }
+            value: 'Instance one working!!'
+        }
+    })
+
+    new Vue({
+        el: '#app2',
+        data: {
+            value: 'Instance two working!!'
         }
     })
 

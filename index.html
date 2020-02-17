@@ -24,7 +24,7 @@
 <body>
     
     <div id="app">
-        
+        <div ref="title">Hello</div>
         <div>Instance one: {{ value }}</div>
         <button @click="changeValue">Change</button>
         {{ accessValue() }}
@@ -50,7 +50,9 @@
         },
         methods: {
             changeValue() {
-                app2.value = 'The value changed.'
+                app2.value = 'The value changed.';
+                this.$refs.title.style.color = 'red';
+                this.$refs.title.style.fontSize = '50px';
             },
             accessValue() {
                 setTimeout(() => {

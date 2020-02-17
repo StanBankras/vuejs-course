@@ -26,11 +26,14 @@
     <div id="app">
         
         <div>Instance one: {{ value }}</div>
-
+        <button @click="changeValue">Change</button>
+        {{ accessValue() }}
     </div>
+    <hr>
     <div id="app2">
         
         <div>Instance two: {{ value }}</div>
+        <button @click="saySomething">Change</button>
 
     </div>
 
@@ -38,19 +41,42 @@
 
 <script>
 
-    new Vue({
+    let message = 'Hey guys'
+
+    const app1 = new Vue({
         el: '#app',
         data: {
             value: 'Instance one working!!'
+        },
+        methods: {
+            changeValue() {
+                app2.value = 'The value changed.'
+            },
+            accessValue() {
+                setTimeout(() => {
+                    console.log(this.name);
+                }, 5000)
+            }
         }
     })
 
-    new Vue({
+    const app2 = new Vue({
         el: '#app2',
         data: {
             value: 'Instance two working!!'
+        },
+        methods: {
+            saySomething() {
+                alert(message);
+            }
         }
     })
+
+    setTimeout(() => {
+        app1.value = 'Changed.';
+        app1.name = 'Francis';
+        console.log(app1.name);
+    }, 3000)
 
 </script>
 

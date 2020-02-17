@@ -8,11 +8,11 @@
 <body>
     
     <div id="app">
-        {{ greeting }}
-        <p>is it true: {{ isItTrue ? 'Yes' : 'No' }}</p>
+        {{ welcome() }}
+        <!-- <p>is it true: {{ isItTrue ? 'Yes' : 'No' }}</p>
         <p>{{ array[1] }}</p>
         <p>{{ obj.car }}</p>
-        <p>{{ func() }}</p>
+        <p>{{ func() }}</p> -->
     </div>
 
 </body>
@@ -30,6 +30,11 @@
             },
             func: () => {
                 return 'Message from function'
+            }
+        },
+        methods: {
+            welcome() {
+                return this.greeting;
             }
         }
     })

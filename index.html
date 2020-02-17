@@ -26,17 +26,13 @@
     <div id="app">
         
         <input type="text" v-model="user">
-        <button v-on:click="toggleActive">Other action</button>
+        <button @click="toggleActive">Other action</button>
         <hr>
         <div>
             Name: {{ compMessage }}
         </div>
-        <div>
-            Active: {{ isActive() }}
-        </div>
-        <div>
-            Loading: {{ loading }}
-        </div>
+        <hr>
+        <a :href="google">Google</a>
 
     </div>
 
@@ -49,7 +45,8 @@
         data: {
             user: '',
             active: false,
-            loading: false
+            loading: false,
+            google: 'https://google.com'
         },
         watch: {
             active(value) {

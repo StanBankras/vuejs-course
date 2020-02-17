@@ -8,23 +8,9 @@
 <body>
     
     <div id="app">
-        <!-- <p v-for="(name, index) in names">
-            {{ index }} / {{ name }}
-        </p>
-        <ul>
-            <li v-for="name in names">{{ index }} / {{ name }}</li>
-        </ul> -->
-
-        <!-- <ul>
-            <li v-for="(car, index) in cars">{{ index }} / {{ car.brand }} / {{ car.color }}</li>
-        </ul> -->
-
-        <ul>
-            <li v-for="(value, key, index) in user">
-                {{ index }} / {{ key }} : {{ value }}
-            </li>
-        </ul>
-
+        <h1>{{ name }}</h1>
+        <h1 v-once>{{ name }}</h1>
+        {{ update() }}
     </div>
 
 </body>
@@ -34,26 +20,14 @@
     new Vue({
         el: '#app',
         data: {
-            user: {
-                name: 'Francis',
-                lastname: 'Jones',
-                age: 25
-            },
-            names: ['Francis', 'Jane', 'Steve'],
-            cars: [
-                {
-                    brand: 'Ferrari',
-                    color: 'Red'
-                },
-                {
-                    brand: 'Ford',
-                    color: 'Blue'
-                },
-                {
-                    brand: 'Chevy',
-                    color: 'Green'
-                }
-            ]
+            name: "Francis"
+        },
+        methods: {
+            update() {
+                setTimeout(() => {
+                    this.name = 'Steve'
+                }, 2000)
+            }
         }
     })
 

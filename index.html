@@ -24,26 +24,37 @@
 <body>
 
     <div id="app">
-        
-        
-
+        <name></name>
     </div>
 </body>
 
 <script>
 
-    const template = `<div>{{ name }}</div>`
+    Vue.component('name', {
+        template: `
+        <div>
+            <div>{{ name }}</div>
+            <button @click="alertSomething">Alert</button>
+        </div>
+        `,
+        data() { 
+            return {
+                name: 'Francis'
+            }
+        },
+        methods: {
+            alertSomething() {
+                alert('Hello there')
+            }
+        }
+    });
 
     const app1 = new Vue({
+        el: '#app',
         data: {
             name: 'Francis'
-        },
-        template: template
+        }
     })
-
-    setTimeout(() => {
-        app1.$mount('#app')
-    }, 3000)
 </script>
 
 </html>

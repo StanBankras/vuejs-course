@@ -15,8 +15,14 @@
             <li v-for="name in names">{{ index }} / {{ name }}</li>
         </ul> -->
 
-        <ul>
+        <!-- <ul>
             <li v-for="(car, index) in cars">{{ index }} / {{ car.brand }} / {{ car.color }}</li>
+        </ul> -->
+
+        <ul>
+            <li v-for="(value, key, index) in user">
+                {{ index }} / {{ key }} : {{ value }}
+            </li>
         </ul>
 
     </div>
@@ -28,6 +34,11 @@
     new Vue({
         el: '#app',
         data: {
+            user: {
+                name: 'Francis',
+                lastname: 'Jones',
+                age: 25
+            },
             names: ['Francis', 'Jane', 'Steve'],
             cars: [
                 {

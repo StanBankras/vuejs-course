@@ -34,6 +34,9 @@
         <div>
             Active: {{ isActive() }}
         </div>
+        <div>
+            Loading: {{ loading }}
+        </div>
 
     </div>
 
@@ -45,7 +48,16 @@
         el: '#app',
         data: {
             user: '',
-            active: false
+            active: false,
+            loading: false
+        },
+        watch: {
+            active(value) {
+                this.loading = true;
+                setTimeout(() => {
+                    this.loading = false;
+                }, 3000)
+            }
         },
         methods: {
             toggleActive() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <div class="user_profile">
             <h3>User information:</h3>
             <ul>
@@ -16,11 +16,18 @@
             </ul>
             <button @click="updateName">Update name</button>
             <button @click="updateLastName('Harry')">Update lastname</button>
+            <div>
+                <input type="text" v-model="friendInput">
+                <button @click="addFriend()">Add friend</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+
+import { bus } from '../../main.js'
+
 export default {
     props: {
         userName: String,
@@ -29,10 +36,19 @@ export default {
         userParents: Object,
         updateLastName: Function
     },
+    data() {
+        return {
+            friendInput: ''
+        }
+    },
     methods: {
         updateName() {
             //this.userName = 'Steve';
             this.$emit('updateName', 'Steve');
+        },
+        addFriend() {
+            console.log('Hoi1');
+            bus.$emit('addFriend', this.friendInput);
         }
     }
 }

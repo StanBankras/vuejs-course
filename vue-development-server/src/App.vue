@@ -1,14 +1,17 @@
 <template>
     <div>
         <app-header></app-header>
-        <compUserProfile 
-            :userName="name"
-            :userLastName="lastname"
-            :userAge="age"
-            :userParents="parents"
-            @updateName="name = $event"
-            :updateLastName="updateLastName"
-         />
+        <div class="container">
+            <compUserProfile 
+                :userName="name"
+                :userLastName="lastname"
+                :userAge="age"
+                :userParents="parents"
+                @updateName="name = $event"
+                :updateLastName="updateLastName"
+            />
+            <compFriends/>
+        </div>
         <compFooter></compFooter>
     </div>
 </template>
@@ -16,6 +19,7 @@
 <script>
 import compFooter from './components/header_footer/Footer.vue'
 import compUserProfile from './components/user/Profile.vue'
+import compFriends from './components/user/Friends.vue'
 
 export default {
     data() {
@@ -31,7 +35,8 @@ export default {
     },
     components: {
         compFooter,
-        compUserProfile
+        compUserProfile,
+        compFriends
     },
     methods: {
         updateLastName(value) {

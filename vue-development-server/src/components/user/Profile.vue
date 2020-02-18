@@ -9,8 +9,10 @@
             </ul>
             <h3>Parents</h3>
             <ul>
-                <li><span>Mother:</span> {{ userParents.mother }}</li>
-                <li><span>Father:</span> {{ userParents.father }}</li>
+                <li v-for="(key, value, index) in userParents" :key="index">
+                    <span>{{ key }}:</span>
+                     {{ value }}
+                </li>
             </ul>
             <button @click="updateName">Update name</button>
         </div>

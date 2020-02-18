@@ -9,8 +9,6 @@ new Vue({
     },
     methods: {
         addNameToList() {
-
-            console.log(this.names);
             if (this.validate(this.inputName)) {
                 this.names.push(this.inputName);
                 this.inputName = '';
@@ -35,6 +33,9 @@ new Vue({
             this.state = true;
             this.names = [];
             this.result = '';
+        },
+        removeName(name) {
+            this.names.splice(name, 1);
         }
     }
 })

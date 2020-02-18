@@ -2,7 +2,16 @@
     <div>
         <div class="user_profile">
             <h3>User profile:</h3>
-            <slot></slot>
+            <hr>
+            <slot name="other">Loading...</slot>
+            <hr>
+            <div>
+                <slot name="main_hab"></slot>
+                <hr>
+                <slot name="notes"></slot>
+                <hr>
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>

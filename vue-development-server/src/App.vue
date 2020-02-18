@@ -12,9 +12,16 @@
             />
             <compFriends/>
             <compHabilities>
-                <ul>
+                <ul slot="main_hab">
                     <li v-for="(hab, index) in habilities" :key="index">{{ hab }}</li>
                 </ul>
+                <div slot="notes">
+                    <p>The user also knows PHP</p>
+                </div>
+                <a href="#">Link</a>
+                <div :slot="slotName">
+                    Other content
+                </div>
             </compHabilities>
         </div>
         <compFooter></compFooter>
@@ -37,7 +44,8 @@ export default {
                 mother: "Martha",
                 father: "Mario"
             },
-            habilities: ['JS', 'CSS', 'HTML']
+            habilities: ['JS', 'CSS', 'HTML'],
+            slotName: ''
         }
     },
     components: {
@@ -50,7 +58,12 @@ export default {
         updateLastName(value) {
             this.lastname = value;
         }
-    }
+    },
+    created() {
+        setTimeout(() => {
+            this.slotName = 'other';
+        }, 3000)
+    },
 }
 </script>
 

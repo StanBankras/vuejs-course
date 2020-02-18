@@ -1,7 +1,7 @@
 <template>
     <div>
         <app-header></app-header>
-        <div>
+        <div class="container">
             {{ name }}
         </div>
         <compFooter></compFooter>
@@ -24,5 +24,16 @@ export default {
 </script>
 
 <style>
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+    .container {
+        min-height: 84vh;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
 
 </style>

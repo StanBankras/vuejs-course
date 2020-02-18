@@ -3,8 +3,14 @@
         <div class="user_profile">
             <h3>User information:</h3>
             <ul>
-                <li><span>Name:</span> {{ name }}</li>
-                <li><span>Lastname:</span> {{ lastname }}</li>
+                <li><span>Name:</span> {{ userName }}</li>
+                <li><span>Lastname:</span> {{ userLastName }}</li>
+                <li><span>Age:</span> {{ userAge }}</li>
+            </ul>
+            <h3>Parents</h3>
+            <ul>
+                <li><span>Mother:</span> {{ userParents.mother }}</li>
+                <li><span>Father:</span> {{ userParents.father }}</li>
             </ul>
             <button @click="updateName">Update name</button>
         </div>
@@ -13,7 +19,12 @@
 
 <script>
 export default {
-    props: ['name', 'lastname'],
+    props: {
+        userName: String,
+        userLastName: String,
+        userAge: Number,
+        userParents: Object
+    },
     methods: {
         updateName() {
             this.name = 'Steve';

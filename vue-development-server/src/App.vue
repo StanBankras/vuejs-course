@@ -2,8 +2,10 @@
     <div>
         <app-header></app-header>
         <compUserProfile 
-            :name="name"
-            lastname="Jones"
+            :userName="name"
+            :userLastName="lastname"
+            :userAge="age"
+            :userParents="parents"
          />
         <compFooter></compFooter>
     </div>
@@ -17,7 +19,12 @@ export default {
     data() {
         return {
             name: 'Stan',
-            lastname: ''
+            lastname: 'Jones',
+            age: 25,
+            parents: {
+                mother: "Martha",
+                father: "Mario"
+            }
         }
     },
     components: {

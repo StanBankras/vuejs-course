@@ -11,6 +11,11 @@
                 :updateLastName="updateLastName"
             />
             <compFriends/>
+            <compHabilities>
+                <ul>
+                    <li v-for="(hab, index) in habilities" :key="index">{{ hab }}</li>
+                </ul>
+            </compHabilities>
         </div>
         <compFooter></compFooter>
     </div>
@@ -20,6 +25,7 @@
 import compFooter from './components/header_footer/Footer.vue'
 import compUserProfile from './components/user/Profile.vue'
 import compFriends from './components/user/Friends.vue'
+import compHabilities from './components/user/Habilities.vue'
 
 export default {
     data() {
@@ -30,13 +36,15 @@ export default {
             parents: {
                 mother: "Martha",
                 father: "Mario"
-            }
+            },
+            habilities: ['JS', 'CSS', 'HTML']
         }
     },
     components: {
         compFooter,
         compUserProfile,
-        compFriends
+        compFriends,
+        compHabilities
     },
     methods: {
         updateLastName(value) {
@@ -57,6 +65,7 @@ export default {
         box-sizing: border-box;
         padding: 20px;
     }
+
 
 
 </style>

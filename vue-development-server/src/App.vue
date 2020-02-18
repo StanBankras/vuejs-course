@@ -6,6 +6,7 @@
             :userLastName="lastname"
             :userAge="age"
             :userParents="parents"
+            @updateName="name = $event"
          />
         <compFooter></compFooter>
     </div>

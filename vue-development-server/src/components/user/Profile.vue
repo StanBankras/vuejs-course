@@ -29,7 +29,8 @@ export default {
     },
     methods: {
         updateName() {
-            this.name = 'Steve';
+            //this.userName = 'Steve';
+            this.$emit('updateName', 'Steve');
         }
     }
 }

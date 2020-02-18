@@ -1,24 +1,28 @@
 <template>
     <div>
         <app-header></app-header>
-        <div class="container">
-            {{ name }}
-        </div>
+        <compUserProfile 
+            :name="name"
+            lastname="Jones"
+         />
         <compFooter></compFooter>
     </div>
 </template>
 
 <script>
 import compFooter from './components/header_footer/Footer.vue'
+import compUserProfile from './components/user/Profile.vue'
 
 export default {
     data() {
         return {
-            name: 'Stan'
+            name: 'Stan',
+            lastname: ''
         }
     },
     components: {
-        compFooter
+        compFooter,
+        compUserProfile
     }
 }
 </script>

@@ -15,6 +15,7 @@
                 </li>
             </ul>
             <button @click="updateName">Update name</button>
+            <button @click="updateLastName('Harry')">Update lastname</button>
         </div>
     </div>
 </template>
@@ -25,7 +26,8 @@ export default {
         userName: String,
         userLastName: String,
         userAge: Number,
-        userParents: Object
+        userParents: Object,
+        updateLastName: Function
     },
     methods: {
         updateName() {

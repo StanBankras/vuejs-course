@@ -7,6 +7,7 @@
             :userAge="age"
             :userParents="parents"
             @updateName="name = $event"
+            :updateLastName="updateLastName"
          />
         <compFooter></compFooter>
     </div>
@@ -31,6 +32,11 @@ export default {
     components: {
         compFooter,
         compUserProfile
+    },
+    methods: {
+        updateLastName(value) {
+            this.lastname = value;
+        }
     }
 }
 </script>

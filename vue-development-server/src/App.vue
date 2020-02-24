@@ -85,6 +85,17 @@
                             </label>          
                         </div>
 
+                        <div class="form-group">
+                            <label for="country">Country</label>  
+                            <select
+                                class="form-control"
+                                id="country"
+                                v-model="formdata.country"
+                            >
+                                <option v-for="(country, index) in countries" :key="index" :value="country">{{ country }}</option>
+                            </select>
+                        </div>
+
                         <button class="btn btn-primary" @click.prevent="submitForm">
                             Submit
                         </button>
@@ -108,7 +119,7 @@
                     gender:'alien',
                     country:'India',
                     extras: [],
-                    gender: 'alien'
+                    gender: 'alien',
                 },
                 countries:[
                     'EEUU',

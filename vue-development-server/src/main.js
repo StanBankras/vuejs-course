@@ -18,7 +18,12 @@ Vue.directive('awesome', {
 
         el.style.color = binding.modifiers.red ? 'red' : 'blue';
         el.style.fontSize = binding.modifiers.big ? '30px' : '12px';
-
+        // happens before the element has been inserted in the dom
+        console.log(el.parentNode);
+    },
+    inserted(el, binding, vnode) {
+        // runs after the element has been inserted in the dom
+        console.log(el.parentNode);
     }
 });
 

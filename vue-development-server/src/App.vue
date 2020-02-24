@@ -45,6 +45,27 @@
                                 v-model="formdata.message"
                             ></textarea>                            
                         </div>
+
+                        <div class="form-group">
+                            <label for="newsletter">Newsletter</label>
+                            <input 
+                            type="checkbox" 
+                            id="newsletter"
+                            value="newsletter"
+                            v-model="formdata.extras"
+                            > 
+
+                            <label for="promotions">Promotions</label>
+                            <input 
+                            type="checkbox" 
+                            id="promotions"
+                            value="promotions"
+                            v-model="formdata.extras"
+                            >     
+                            <br>
+                            {{ formdata.extras }}            
+                        </div>
+
                         <button class="btn btn-primary" @click.prevent="submitForm">
                             Submit
                         </button>
@@ -66,7 +87,8 @@
                     message:'Some default content',
                     extras:[],
                     gender:'alien',
-                    country:'India'
+                    country:'India',
+                    extras: []
                 },
                 countries:[
                     'EEUU',

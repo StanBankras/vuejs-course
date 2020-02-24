@@ -3,6 +3,8 @@
         <app-header/>
         <div class="container">
 
+            <div>{{ userName }}</div>
+
             <div v-awesome.red.big="textToRender"></div>
             <div v-awesome.blue.small="textToRender"></div>
 
@@ -14,8 +16,14 @@
     export default {
         data(){
             return {
-                textToRender: 'Text as value'
+                textToRender: 'Text as value',
+                userName: 'Francis'
             }
+        },
+        mounted() {
+            setTimeout(() => {
+                this.userName='Steve'
+            }, 3000)
         }
     }
 </script>

@@ -24,6 +24,15 @@ Vue.directive('awesome', {
     inserted(el, binding, vnode) {
         // runs after the element has been inserted in the dom
         console.log(el.parentNode);
+    },
+    update(el, binding, vnode, oldVnode) {
+        console.log('update');
+    },
+    componentUpdated() {
+        console.log('update too');
+    },
+    unbind(el, binding, vnode) {
+        console.log('unbind');
     }
 });
 

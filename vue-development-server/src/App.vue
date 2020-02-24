@@ -3,14 +3,11 @@
         <app-header/>
         <div class="container">
 
-            <div>{{ userName }}</div>
+            <transition name="appear">
+                <div class="p-3 mb-2 bg-success text-white" v-if="display">Hello</div>            
+            </transition>
 
-            <div v-user-lastname="userLastname"></div>
-
-            <hr>
-
-            <div v-awesome.red.big="textToRender"></div>
-            <div v-awesome.blue.small="textToRender"></div>
+            <button @click="display = !display" class="btn btn-primary">Toggle animation</button>
 
         </div>
     </div>
@@ -20,21 +17,7 @@
     export default {
         data(){
             return {
-                textToRender: 'Text as value',
-                userName: 'Francis',
-                userLastname: 'Jones'
-            }
-        },
-        mounted() {
-            setTimeout(() => {
-                this.userName='Steve'
-            }, 3000)
-        },
-        directives: {
-            'user-lastname': {
-                bind(el, binding, vnode) {
-                    el.innerHTML = binding.value;
-                }
+                display: false
             }
         }
     }
@@ -42,6 +25,24 @@
 
 
 <style>
+
+    .appear-enter {
+        opacity: 0;
+    }
+
+    .appear-enter-active {
+        transition: opacity 3s;
+    }
+
+    .appear-leave {
+
+    }
+
+    .appear-leave-active {
+        opacity: 0;
+        transition: opacity 5s;
+    }
+
     body {
         padding:0;
         margin:0;

@@ -2,36 +2,20 @@
     <div>
         <app-header/>
         <div class="container">
-            <div>
-                <button @click="compToRender = 'compHome'">Home</button>
-                <button @click="compToRender = 'compPage'">Page</button>
-                <button @click="compToRender = 'compContact'">Contact</button>
-            </div>
 
-            <keep-alive>
-                <component :is="compToRender"></component>
-            </keep-alive>
+            <div v-awesome.red.big="textToRender"></div>
+            <div v-awesome.blue.small="textToRender"></div>
 
         </div>
     </div>
 </template>
 
 <script>
-
-    import compContact from './components/Contact.vue'
-    import compHome from './components/Home.vue'
-    import compPage from './components/Page.vue'
-
     export default {
         data(){
             return {
-                compToRender:'compContact'
+                textToRender: 'Text as value'
             }
-        },
-        components: {
-            compContact,
-            compHome,
-            compPage
         }
     }
 </script>

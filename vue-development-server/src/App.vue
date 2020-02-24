@@ -2,138 +2,36 @@
     <div>
         <app-header/>
         <div class="container">
-           <form>
-               <div class="row">
-                   <div class="col-xs-12">
-                        <h1>Contact us</h1>
-                        <hr>
+            <div>
+                <button @click="compToRender = 'compHome'">Home</button>
+                <button @click="compToRender = 'compPage'">Page</button>
+                <button @click="compToRender = 'compContact'">Contact</button>
+            </div>
 
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input 
-                                type="text" 
-                                id="name"
-                                class="form-control"
-                                v-model.lazy="formdata.name"
-                            >
-                            {{ formdata.name }}
-                        </div>
-                        <div class="form-group">
-                            <label for="lastname">Lastname</label>
-                            <input 
-                                type="text" 
-                                id="lastname"
-                                class="form-control"
-                                v-model="formdata.lastname"
-                            >
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input 
-                                type="text" 
-                                id="subject"
-                                class="form-control"
-                                v-model="formdata.subject"
-                            >
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea
-                                class="form-control"
-                                rows="3"
-                                id="message"
-                                v-model="formdata.message"
-                            ></textarea>                            
-                        </div>
+            <keep-alive>
+                <component :is="compToRender"></component>
+            </keep-alive>
 
-                        <div class="form-group">
-                            <label for="newsletter">Newsletter</label>
-                            <input 
-                            type="checkbox" 
-                            id="newsletter"
-                            value="newsletter"
-                            v-model="formdata.extras"
-                            > 
-
-                            <label for="promotions">Promotions</label>
-                            <input 
-                            type="checkbox" 
-                            id="promotions"
-                            value="promotions"
-                            v-model="formdata.extras"
-                            >            
-                        </div>
-
-                        <div class="form-group">
-                            <label for="human">   
-                                <input 
-                                    type="radio"
-                                    id="human"
-                                    value="human"
-                                    v-model="formdata.gender"
-                                > 
-                                Human    
-                            </label>    
-                            <label for="alien">   
-                                <input 
-                                    type="radio"
-                                    id="alien"
-                                    value="alien"
-                                    v-model="formdata.gender"
-                                > 
-                                Alien    
-                            </label>          
-                        </div>
-
-                        <div class="form-group">
-                            <label for="country">Country</label>  
-                            <select
-                                class="form-control"
-                                id="country"
-                                v-model="formdata.country"
-                            >
-                                <option v-for="(country, index) in countries" :key="index" :value="country">{{ country }}</option>
-                            </select>
-                        </div>
-
-                        <button class="btn btn-primary" @click.prevent="submitForm">
-                            Submit
-                        </button>
-                   </div>
-               </div>
-           </form>
         </div>
     </div>
 </template>
 
 <script>
+
+    import compContact from './components/Contact.vue'
+    import compHome from './components/Home.vue'
+    import compPage from './components/Page.vue'
+
     export default {
         data(){
             return {
-                formdata:{
-                    name:'',
-                    lastname:'',
-                    subject:'',
-                    message:'Some default content',
-                    extras:[],
-                    gender:'alien',
-                    country:'India',
-                    extras: [],
-                    gender: 'alien',
-                },
-                countries:[
-                    'EEUU',
-                    'India',
-                    'UK',
-                    'Russia'
-                ],
+                compToRender:'compContact'
             }
         },
-        methods:{
-            submitForm(){
-                console.log(this.formdata);
-                console.log(JSON.stringify(this.formdata))
-            }
+        components: {
+            compContact,
+            compHome,
+            compPage
         }
     }
 </script>

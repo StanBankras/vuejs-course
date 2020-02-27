@@ -30,7 +30,7 @@
         },
         methods:{
             submit() {
-                this.$http.post('http://localhost:3004/users', this.user)
+                this.$http.post('users', this.user)
                 .then(response => {
                     console.log(response);
                 })

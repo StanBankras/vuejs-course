@@ -9,6 +9,17 @@ Vue.component('app-header', Header);
 Vue.component('app-footer', Footer);
 
 Vue.use(VueResource);
+Vue.http.options.root = 'http://localhost:3004/';
+Vue.http.headers.common['Authorization'] = 'Basic token';
+
+Vue.http.interceptors.push((request, next) => { 
+    console.log(request);
+    // request.root = 'http://somethingelse.com';
+
+    next(response => {
+        response.body = [...response.body, { name: 'hello' }]
+    })
+})
 
 new Vue({
     el: '#app',

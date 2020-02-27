@@ -19,19 +19,26 @@
     export default {
         data(){
             return {
-                users:''
+                users:'',
+                resource: ''
             }
         },
         methods:{
             fetchData() {
-                this.$http.get('users')
+                // this.$http.get('users')
+                // .then(response => {
+                //     this.users = response.body;
+                // });
+
+                this.resource.get()
                 .then(response => {
                     this.users = response.body;
-                    console.log(response.body);
                 })
+
             }
         },
         created(){
+            this.resource = this.$resource('users');
             this.fetchData();
         }
     }

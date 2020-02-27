@@ -17,7 +17,7 @@ Vue.http.interceptors.push((request, next) => {
     // request.root = 'http://somethingelse.com';
 
     next(response => {
-        response.body = [...response.body, { name: 'hello' }]
+        // response.body = [...response.body, { name: 'hello' }]
     })
 })
 

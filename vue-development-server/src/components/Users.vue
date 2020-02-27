@@ -30,7 +30,7 @@
                 //     this.users = response.body;
                 // });
 
-                this.resource.get({})
+                this.resource.get({_limit:3})
                 .then(response => {
                     this.users = response.body;
                 })
@@ -38,7 +38,7 @@
             }
         },
         created(){
-            this.resource = this.$resource('users{/id}');
+            this.resource = this.$resource('users{/id}', { _limit: 20 });
             this.fetchData();
         }
     }

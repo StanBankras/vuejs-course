@@ -25,16 +25,24 @@
                 user:{ 
                     name:'',
                     lastname:''
-                }
+                },
+                resource: ''
             }
         },
         methods:{
             submit() {
-                this.$http.post('users', this.user)
+                // this.$http.post('users', this.user)
+                // .then(response => {
+                //     console.log(response);
+                // })
+                this.resource.save({}, this.user)
                 .then(response => {
                     console.log(response);
                 })
             }
+        },
+        created() {
+            this.resource = this.$resource('users');
         }
     }
 </script>

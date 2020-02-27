@@ -29,11 +29,11 @@
             }
         },
         methods:{
-            submit(){
-               this.$http.post('users',this.user)
-               .then( response => {
-                   console.log(response)
-               })
+            submit() {
+                this.$http.post('http://localhost:3004/users', this.user)
+                .then(response => {
+                    console.log(response);
+                })
             }
         }
     }

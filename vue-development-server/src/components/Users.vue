@@ -23,11 +23,10 @@
             }
         },
         methods:{
-            fetchData(){
-                this.$http.get('users')
-                .then( response => {
+            fetchData() {
+                this.$http.get('http://localhost:3004/users')
+                .then(response => {
                     this.users = response.body;
-                    console.log(response.body)
                 })
             }
         },

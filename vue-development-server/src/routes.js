@@ -4,7 +4,11 @@ import HomeComp from './components/Home.vue'
 
 export const routes = [
     {
-        path:'/user',
+        path: '/user',
+        component: UserComp
+    },
+    {
+        path: '/user/:id',
         component: UserComp
     },
     {
@@ -12,7 +16,7 @@ export const routes = [
         component: AboutComp
     },
     {
-        path: '', 
+        path: '',
         component: HomeComp
     }
 ]

@@ -1,30 +1,23 @@
 import Vue from 'vue';
-import App from './App.vue'
-import VueResource from 'vue-resource'
+import App from './App.vue';
+import VueRouter from 'vue-router';
+import { routes } from './routes'
 
-import Header from './components/header_footer/Header.vue'
-import Footer from './components/header_footer/Footer.vue'
+import Header from './Components/Header_footer/Header.vue'
+import Footer from './Components/Header_footer/Footer.vue';
 
-Vue.component('app-header', Header);
-Vue.component('app-footer', Footer);
+Vue.component('app-header',Header)
+Vue.component('app-footer',Footer)
 
-Vue.use(VueResource);
-Vue.http.options.root = 'http://localhost:3004/';
-Vue.http.headers.common['Authorization'] = 'Basic token';
+Vue.use(VueRouter);
 
-Vue.http.interceptors.push((request, next) => { 
-    console.log(request);
-    // request.root = 'http://somethingelse.com';
-
-    next(response => {
-        // response.body = [...response.body, { name: 'hello' }]
-    })
-})
+const router = new VueRouter({
+    routes,
+    mode: 'history'
+});
 
 new Vue({
-    el: '#app',
-    render: h => h(App),
-    data: {
-
-    }
-})
+    el:'#app',
+    router,
+    render: h => h(App)
+});

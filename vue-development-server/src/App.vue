@@ -2,34 +2,15 @@
     <div>
         <app-header/>
         <div class="container">
-            <div>
-                <button @click="active = 'compUsers'">Users</button>
-                <button @click="active = 'compAddUsers'">Add users</button>
-            </div>
-            <hr>
-            
-            <div>
-                <component :is="this.active"></component>
-            </div>
+            <router-view/>
         </div>
         <app-footer/>
     </div>
 </template>
 
 <script>
-    import compUsers from './Components/Users.vue';
-    import compAddUsers from './Components/AddUsers.vue';
-
     export default {
-        data(){
-            return{
-                active:'compUsers'
-            }
-        },
-        components:{
-            compUsers,
-            compAddUsers
-        }
+       
     }
 </script>
 
